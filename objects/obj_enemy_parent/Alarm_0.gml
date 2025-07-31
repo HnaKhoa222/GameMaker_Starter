@@ -6,4 +6,4 @@ if (instance_exists(obj_player) && distance_to_object(obj_player) < distance_to_
     target_y = random_range(ystart - 100, ystart + 100);
 }
 
-alarm[0] = 60;
+alarm[0] = 60; 

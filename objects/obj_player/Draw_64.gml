@@ -27,6 +27,3 @@ draw_text(_dx + _barw/2, _dy + _barh/2, $"LEVEL {level}");
 //reset properties
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-
-
-
