@@ -1,6 +1,13 @@
+// draw the weapon behind the player
+if aimDir >= 45 && aimDir <= 225 
+{
+	draw_weapon();
+}
+
 // draw the player
 draw_self();
 
 // draw the weapon
-draw_sprite_ext( spr_ak47, 0, x, centerY + 1, 0.5, 0.5, aimDir, c_white, 1);
-
+if aimDir >= 225 && aimDir < 360 ||  aimDir <= 45 && aimDir > 0 {
+	draw_weapon();
+}

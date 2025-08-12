@@ -14,7 +14,7 @@
   "name":"Room3",
   "parent":{
     "name":"Particle Systems",
-    "path":"folders/Particle Systems.yy",
+    "path":"folders/Sprites/Turn Based Battle/Particle Systems.yy",
   },
   "parentRoom":null,
   "physicsSettings":{
