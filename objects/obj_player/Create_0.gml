@@ -1,4 +1,10 @@
-move_speed = 1;
+base_speed = 1;
+move_speed = base_speed;
+sprint_speed = 5;
+stamina = 10;
+stamina_max = 10;
+
+
 tilemap = layer_tilemap_get_id("Tiles_Col");
 hp = 10;
 hp_total = hp;

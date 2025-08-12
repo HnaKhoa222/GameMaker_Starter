@@ -25,3 +25,12 @@ if (keyboard_check(vk_space)){
     _inst.image_angle = facing;
     _inst.damage *= damage;
 }
+
+//sprint
+if (keyboard_check(vk_shift) && stamina > 0 && (_hor != 0 or _ver != 0)){
+    move_speed = sprint_speed;
+    stamina -= 2;
+} else {
+    move_speed = base_speed;
+    stamina = clamp((stamina + 0.2), 0, stamina_max)
+}
