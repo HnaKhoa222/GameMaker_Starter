@@ -29,8 +29,8 @@ var _stamina_barw = _barw * (stamina / stamina_max);
 _dy += _barh + 10;
 
 draw_sprite_stretched(spr_box, 0, _dx, _dy, _barw, _barh);
-draw_sprite_stretched_ext(spr_box, 1, _dx, _dy, __barw, _barh, c_red, 0.6);
-draw_text(_dx + _barw/2, _dy + _barh  / 2, "HP");
+draw_sprite_stretched_ext(spr_box, 1, _dx, _dy, _stamina_barw, _barh, c_red, 0.6);
+draw_text(_dx + _barw/2, _dy + _barh  / 2, "stamina");
 
 //reset properties
 draw_set_halign(fa_left);

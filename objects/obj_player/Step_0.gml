@@ -20,17 +20,39 @@ else
 	else if (sprite_index == spr_player_walk_left) sprite_index = spr_player_idle_left;
 }
 //attack
-if (keyboard_check(vk_space)){
-    var _inst = instance_create_depth(x , y, depth, obj_attack);
-    _inst.image_angle = facing;
+if (mouse_check_button_pressed(mb_left)){
+    var _inst = instance_create_depth(x , y, depth, attack);
+    //_inst.image_angle = facing;
+    _inst.image_angle = point_direction(x, y, mouse_x, mouse_y);
     _inst.damage *= damage;
 }
 
 //sprint
-if (keyboard_check(vk_shift) && stamina > 0 && (_hor != 0 or _ver != 0)){
+if (keyboard_check(vk_shift) && (_hor != 0 or _ver != 0)){
+    if (stamina > 0){
     move_speed = sprint_speed;
-    stamina -= 2;
+    } else {move_speed= base_speed};
+    stamina = clamp((stamina - 0.8), 0, stamina_max);
 } else {
-    move_speed = base_speed;
-    stamina = clamp((stamina + 0.2), 0, stamina_max)
+        stamina = clamp((stamina + 0.2), 0, stamina_max);
 }
+
+//dash
+if (mouse_check_button_pressed(mb_right) ){
+    if (stamina > 0){
+        dash_dir = point_direction(x, y, mouse_x, mouse_y);
+        dash_speed = 6;
+        stamina = clamp((stamina - 20), 0, stamina_max);
+    }
+} 
+if (dash_speed > 0) {
+    var dx = lengthdir_x(dash_speed, dash_dir);
+    var dy = lengthdir_y(dash_speed, dash_dir);
+    var bonus_damage = 2;
+    move_and_collide(dx, dy, tilemap);
+    attack= obj_attack;
+    dash_speed = max(0, dash_speed - friction_slide);
+} else {
+    attack = obj_attack2;
+}
+

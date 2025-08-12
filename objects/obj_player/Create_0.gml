@@ -1,8 +1,16 @@
 base_speed = 1;
 move_speed = base_speed;
-sprint_speed = 5;
-stamina = 10;
-stamina_max = 10;
+sprint_speed = 2.5;
+stamina = 100;
+stamina_max = 100;
+teleport_distance = 100;
+
+dash_speed = 0;
+dash_dir = 0;
+friction_slide = 0.3; 
+
+attack = obj_attack2;
+
 
 
 tilemap = layer_tilemap_get_id("Tiles_Col");
