@@ -16,39 +16,45 @@ var downKey = keyboard_check( ord( "S" ) );
 	var _spd = 0;
 	var _inputLevel = point_distance( 0, 0, _horiKey, _vertKey);
 	//_inputLevel = clamp( _inputLevel, 0, 1);
+		
+	_spd = moveSpd * _inputLevel;
 	
-	if (_inputLevel == 0) {
-		if (sprite_index == spr_player_walk_up) sprite_index = spr_player_idle_up;
-		if (sprite_index == spr_player_walk_down) sprite_index = spr_player_idle_down;
-		if (sprite_index == spr_player_walk_left) sprite_index = spr_player_idle_left;
-		if (sprite_index == spr_player_walk_right) sprite_index = spr_player_idle_right;
-	} else {
-		
-		_spd = moveSpd * _inputLevel;
-	
-		xspd = lengthdir_x( _spd, moveDir);
-		yspd = lengthdir_y( _spd, moveDir);
+	xspd = lengthdir_x( _spd, moveDir);
+	yspd = lengthdir_y( _spd, moveDir);
 		
 		
-		//collision
-		if !place_meeting(x + xspd, y, tilemap) {
-			x += xspd;
-		}
-		
-		if !place_meeting(x, y + yspd, tilemap) {
-			y += yspd;
-		}
+	//collision
+	if !place_meeting(x + xspd, y, tilemap) {
+		x += xspd;
 	}
+		
+	if !place_meeting(x, y + yspd, tilemap) {
+		y += yspd;
+	}
+
 #endregion
 
-// sprite control
-	// make sure the player is 
-	if (_inputLevel) {
-		face = round( moveDir/90);
-		if face == 4 { face = 0; };
+// player aiming
+	centerY = y + centerYOffset;
+	
+	// aim
+	aimDir = point_direction( x, centerY, mouse_x, mouse_y);
 
-		// set the player sprite
+
+// sprite control
+#region
+	// make sure the player is facing the correct direction
+	face = round( aimDir/90);
+	if face == 4 { face = 0; };
+
+	// set the player sprite
+	if (_inputLevel == 0) {
+		if (face == 1) sprite_index = spr_player_idle_up;
+		if (face == 3) sprite_index = spr_player_idle_down;
+		if (face == 2) sprite_index = spr_player_idle_left;
+		if (face == 0) sprite_index = spr_player_idle_right;
+	} else {
 		sprite_index = sprite[face]
 	}
-
+#endregion
 	

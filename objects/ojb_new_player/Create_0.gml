@@ -5,6 +5,11 @@ xspd = 0;
 yspd = 0;
 
 // sprite control
+centerYOffset = -8;
+centerY = y + centerYOffset; // set in the step event
+
+aimDir = 0;
+
 face = 3;
 sprite[0] = spr_player_walk_right;
 sprite[1] = spr_player_walk_up;
