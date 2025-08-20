@@ -5,19 +5,19 @@ move_and_collide(_hor * move_speed, _ver * move_speed, tilemap, undefined, undef
 //move
 if (_hor != 0 or _ver != 0)
 {
-	if (_ver < 0) sprite_index = spr_player_walk_up;
-	else if (_ver > 0) sprite_index = spr_player_walk_down;
-	else if (_hor > 0) sprite_index = spr_player_walk_right;
-	else if (_hor < 0) sprite_index = spr_player_walk_left;
+	if (_ver < 0 and _hor == 0) sprite_index = spr_player3_walk_up;
+	else if (_ver > 0 and _hor == 0) sprite_index = spr_player3_walk_down;
+	else if (_hor > 0) sprite_index = spr_player3_walk_right;
+	else if (_hor < 0) sprite_index = spr_player3_walk_left;
         
     facing = point_direction(0, 0, _hor, _ver);
 }
 else
 {
-	if (sprite_index == spr_player_walk_up) sprite_index = spr_player_idle_up;
-	else if (sprite_index == spr_player_walk_down) sprite_index = spr_player_idle_down;
-	else if (sprite_index == spr_player_walk_right) sprite_index = spr_player_idle_right;
-	else if (sprite_index == spr_player_walk_left) sprite_index = spr_player_idle_left;
+	if (sprite_index == spr_player3_walk_up) sprite_index = spr_player3_walk_up;
+	else if (sprite_index == spr_player3_walk_down) sprite_index = spr_player3_idle_down;
+	else if (sprite_index == spr_player3_walk_right) sprite_index = spr_player3_idle_right;
+	else if (sprite_index == spr_player3_walk_left) sprite_index = spr_player3_idle_left;
 }
 //attack
 if (mouse_check_button_pressed(mb_left)){
@@ -48,11 +48,11 @@ if (mouse_check_button_pressed(mb_right) ){
 if (dash_speed > 0) {
     var dx = lengthdir_x(dash_speed, dash_dir);
     var dy = lengthdir_y(dash_speed, dash_dir);
-    var bonus_damage = 2;
+    var bonus_damage = 2;  //heavy attack combo
     move_and_collide(dx, dy, tilemap);
-    attack= obj_attack;
+    attack= obj_attack_heavy;
     dash_speed = max(0, dash_speed - friction_slide);
 } else {
-    attack = obj_attack2;
+    attack = obj_attack;
 }
 

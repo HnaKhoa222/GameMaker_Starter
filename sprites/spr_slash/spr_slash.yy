@@ -62,7 +62,7 @@
     "name":"spr_slash",
     "playback":1,
     "playbackSpeed":30.0,
-    "playbackSpeedType":0,
+    "playbackSpeedType":1,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
     "seqHeight":24.0,

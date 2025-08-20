@@ -9,10 +9,13 @@
   "name":"obj_attack",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"attack",
+    "path":"folders/Objects/attack.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_attack_parent",
+    "path":"objects/obj_attack_parent/obj_attack_parent.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_slash",
-    "path":"sprites/spr_slash/spr_slash.yy",
+    "name":"spr_slash2",
+    "path":"sprites/spr_slash2/spr_slash2.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -9,7 +9,10 @@ dash_speed = 0;
 dash_dir = 0;
 friction_slide = 0.3; 
 
-attack = obj_attack2;
+attack = obj_attack;
+hand_offset = -5;
+//draw weapon
+
 
 
 
